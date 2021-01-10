@@ -1,0 +1,14 @@
+# set apache server
+# set all request to index.php
+
+<IfModule mod_rewrite.c>
+    # open Rerite
+    RewriteEngine On
+
+    # request to real file
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # send other request to index.php
+    RewriteRule . index.php
+</IfModule>
