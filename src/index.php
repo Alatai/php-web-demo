@@ -3,6 +3,7 @@
 /*
  * index page
  * enter into the application
+ * 参考：https://github.com/yeszao/fastphp
  */
 
 define("APP_PATH", __DIR__ . "/"); // set application's path
