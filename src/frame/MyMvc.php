@@ -66,11 +66,11 @@ class MyMvc
         $controller = "app\\controller\\" . $controllerName . "Controller";
 
         if (!class_exists($controller)) {
-            exit($controller . "controller does not exist.");
+            exit($controller . " controller does not exist.");
         }
 
         if (!method_exists($controller, $actionName)) {
-            exit($actionName . "method does not exist.");
+            exit($actionName . " method does not exist.");
         }
 
         $dispatch = new $controller($controllerName, $actionName);
