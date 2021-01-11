@@ -1,6 +1,4 @@
-# set apache server
-# set all request to index.php
-
+# Apache server config.
 <IfModule mod_rewrite.c>
     # open Rerite
     RewriteEngine On
