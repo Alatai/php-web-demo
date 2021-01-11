@@ -13,7 +13,7 @@ use app\model\UserModel;
 class UserController extends BaseController
 {
     /**
-     *
+     * User management index page.
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class UserController extends BaseController
         if ($keyword) {
             $users = (new UserModel)->searchByKeyword($keyword);
         } else {
-            $users = (new UserModel)->where()->order(['id DESC'])->fetchAll();
+            $users = (new UserModel)->fetchAll();
         }
 
         $this->assign("users", $users);

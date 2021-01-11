@@ -13,6 +13,12 @@ class UserModel extends BaseModel
 {
     protected $table = "user";
 
+    /**
+     * Like sql by user's name.
+     *
+     * @param $keyword
+     * @return array
+     */
     public function searchByKeyword($keyword)
     {
         $sql = "SELECT * FROM `$this->table` WHERE `name` like :keyword";
