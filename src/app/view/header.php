@@ -1,3 +1,12 @@
+<?php
+// Start the session
+session_start();
+
+// is login ?
+if (!$_SESSION["username"]) {
+    header("Location: http://localhost:8080/login.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -29,7 +38,7 @@
 
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">WELCOME: <?php session_start();echo $_SESSION["username"]; ?> 様</a></li>
+                    <li class="uk-active"><a href="#">WELCOME: <?php echo $_SESSION["username"]; ?> 様</a></li>
                     <li><a href="/login/logout">logout</a></li>
                 </ul>
             </div>
