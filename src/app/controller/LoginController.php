@@ -20,9 +20,7 @@ class LoginController extends BaseController
         $account = $_POST["account"];
         $password = $_POST["password"];
 
-        $user = (new UserModel)->where([" name = ? ", " and password = ? ",
-            " or email = ? ", " and password = ? "],
-            [$account, $password, $account, $password])->fetch();
+        $user = (new UserModel())->searchForLogin($account, $password);
 
         if ($user) {
             session_start();

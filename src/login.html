@@ -15,26 +15,42 @@
 </head>
 <body>
 
-<div class="uk-position-center uk-overlay uk-overlay-default">
-    <form action="/login/login" method="POST">
-        <div class="uk-margin">
-            <div class="uk-inline">
-                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                <input class="uk-input" name="account" type="text">
-            </div>
-        </div>
+<div class="uk-section uk-section-small uk-flex uk-flex-middle uk-text-center uk-margin-large-top">
+    <div class="uk-width-1-1">
+        <div class="uk-container" style="max-width:330px;">
+            <p class="uk-text-lead">
+                <img src="static/img/login.png" alt="" style="width: 20%">
+                </svg>
+            </p>
+            <p class="uk-text-lead">登录</p>
 
-        <div class="uk-margin">
-            <div class="uk-inline">
-                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                <input class="uk-input" name="password" type="password">
-            </div>
-        </div>
+            <form action="/login/login" method="POST">
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input class="uk-input" name="account" type="text" placeholder="ユーザネーム/メールアドレス">
+                    </div>
+                </div>
 
-        <div class="uk-margin" uk-margin>
-            <button class="uk-button uk-button-default">Submit</button>
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input class="uk-input" name="password" type="password" placeholder="パスワード">
+                    </div>
+                </div>
+
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <label><input class="uk-checkbox" type="checkbox"> 记住登录状态</label>
+                    </div>
+                </div>
+
+                <div class="uk-margin" uk-margin>
+                    <button class="uk-button uk-button-secondary uk-width-1-1">登录</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
 
 </body>

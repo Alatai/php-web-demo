@@ -24,24 +24,23 @@ if (!$_SESSION["username"]) {
 </head>
 <body>
 
-<!-- navigation -->
-<div class="uk-margin-large-bottom uk-background-muted">
-    <div class="uk-container">
-        <div class="uk-navbar-container" uk-navbar>
-            <div class="uk-navbar-left">
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">HOME | ホーム</a></li>
-                    <li><a href="#">BLOG | ブログ</a></li>
-                    <li><a href="#">OTHER | その他</a></li>
-                </ul>
-            </div>
+<!-- Nav -->
+<div class="uk-margin-medium-bottom uk-sticky uk-navbar-transparent"
+     uk-sticky="show-on-up: true; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent;">
+    <div class="uk-navbar-container uk-visible@m uk-background-secondary uk-light" uk-navbar>
+        <div class="uk-navbar-left uk-margin-large-left">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">HOME | ホーム</a></li>
+                <li><a href="#">BLOG | ブログ</a></li>
+                <li><a href="#">OTHER | その他</a></li>
+            </ul>
+        </div>
 
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">WELCOME: <?php echo $_SESSION["username"]; ?> 様</a></li>
-                    <li><a href="/login/logout">logout</a></li>
-                </ul>
-            </div>
+        <div class="uk-navbar-right uk-margin-large-right">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">WELCOME: <?php echo $_SESSION["username"]; ?> 様</a></li>
+                <li><a href="/login/logout">logout</a></li>
+            </ul>
         </div>
     </div>
 </div>

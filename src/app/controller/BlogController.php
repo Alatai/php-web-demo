@@ -17,9 +17,9 @@ class BlogController extends BaseController
      */
     public function index()
     {
-        $blogs = (new BlogModel)->fetchAll();
+        $pageResult = (new BlogModel)->paginate(1, 5);
 
-        $this->assign("blogs", $blogs);
+        $this->assign("pageResult", $pageResult);
 
         $this->render();
     }

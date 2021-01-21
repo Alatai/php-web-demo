@@ -28,4 +28,18 @@ class UserModel extends BaseModel
 
         return $sth->fetchAll();
     }
+
+    /**
+     * Select for login.
+     *
+     * @param $account
+     * @param $password
+     * @return mixed
+     */
+    public function searchForLogin($account, $password)
+    {
+        return $this->where([" name = ? ", " and password = ? ",
+            " or email = ? ", " and password = ? "],
+            [$account, $password, $account, $password])->fetch();
+    }
 }
