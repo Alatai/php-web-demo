@@ -7,7 +7,7 @@ use frame\db\BasePDBC;
 
 /**
  * Class UserModel
- * @author: M20W0324 斉鵬
+ * @author: 斉鵬
  */
 class UserModel extends BaseModel
 {

@@ -13,14 +13,27 @@ use app\model\BlogModel;
 class BlogController extends BaseController
 {
     /**
-     * Blog index page.
+     * Blog home/index page.
      */
     public function index()
     {
-        $pageResult = (new BlogModel)->paginate(1, 5);
+        session_start();
 
-        $this->assign("pageResult", $pageResult);
+        if ($_SESSION["username"]) {
+            $pageResult = (new BlogModel)->paginate(1, 5);
 
-        $this->render();
+            $this->assign("pageResult", $pageResult);
+
+            $this->render();
+        } else {
+            header("Location: http://localhost:8080/login.html");
+        }
+    }
+
+    /**
+     * Blog update.
+     */
+    public function update() {
+        echo $_SERVER['PHP_SELF']."<br>";
     }
 }

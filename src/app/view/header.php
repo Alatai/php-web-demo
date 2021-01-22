@@ -1,12 +1,3 @@
-<?php
-// Start the session
-session_start();
-
-// is login ?
-if (!$_SESSION["username"]) {
-    header("Location: http://localhost:8080/login.html");
-}
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -20,6 +11,7 @@ if (!$_SESSION["username"]) {
     <script type="text/javascript" src="../../static/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../../static/js/uikit.min.js"></script>
     <script type="text/javascript" src="../../static/js/uikit-icons.min.js"></script>
+    <script type="text/javascript" src="../../static/js/main.js"></script>
     <title>HOME</title>
 </head>
 <body>

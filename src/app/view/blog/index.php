@@ -22,7 +22,6 @@
                                     <a class="uk-button uk-button-text" href="#">5 条评论</a>
                                 </div>
                             </div>
-
                         </article>
                     </li>
                 <?php endforeach ?>
@@ -32,37 +31,25 @@
             <div class="uk-margin-large">
                 <ul class="uk-pagination uk-flex-center" uk-margin>
                     <li><a href="#"><span uk-pagination-previous></span></a></li>
-                    <li><a href="#">1</a></li>
-                    <li class="uk-disabled"><span>...</span></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">6</a></li>
-                    <li class="uk-active"><span>7</span></li>
-                    <li><a href="#">8</a></li>
+                    <?php if (isset($pageResult)): for ($i = 1; $i <= $pageResult->getTotalPage(); $i++): ?>
+                        <li><a href="#"><?php echo $i; ?></a></li>
+                    <?php endfor; ?>
+                    <?php endif ?>
                     <li><a href="#"><span uk-pagination-next></span></a></li>
                 </ul>
             </div>
         </div>
         <div class="uk-width-1-1 uk-width-1-3@s">
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-header">
-                    <div class="uk-grid-small uk-flex-middle" uk-grid>
-                        <div class="uk-width-auto">
-                        <!-- <img class="uk-border-circle" width="40" height="40" -->
-                            <!-- src="http://getuikit.dev-tang.com/skin/ukv3/-tang.com/skin/ukv3/images/avatar.jpg"> -->
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3 class="uk-card-title uk-margin-remove-bottom">XXXX</h3>
-                            <p class="uk-text-meta uk-margin-remove-top"></p>
-                        </div>
+            <div class="uk-card uk-card-body">
+                <h4>站内搜索</h4>
+                <form action="blog" method="POST">
+                    <div class="uk-inline">
+                        <input class="uk-input" type="text" name="keyword" placeholder="検索" size="31" maxlength="255">
                     </div>
-                </div>
-                <div class="uk-card-body">
-                    <p></p>
-                </div>
-                <div class="uk-card-footer">
-                    <a href="#" class="uk-button uk-button-text">查看更多该作者的文章 <span class="uk-margin-small-right uk-icon"
-                                                                                  uk-icon="chevron-right"></span></a>
-                </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="uk-button uk-button-default">検索</button>
+                </form>
             </div>
             <div class="uk-card uk-card-body">
                 <h3 class="uk-card-title">归档</h3>

@@ -8,7 +8,7 @@ use PDO;
 
 /**
  * Class BlogModel
- * @author: M20W0324 斉鵬
+ * @author: 斉鵬
  */
 class BlogModel extends BaseModel
 {
