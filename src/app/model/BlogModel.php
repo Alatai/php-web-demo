@@ -41,8 +41,10 @@ class BlogModel extends BaseModel
         $param_1 = ($currentPage - 1) * $pageSize;
         $param_2 = $pageSize;
 
+        $userTable = (new UserModel())->getTable();
+
         // listData sql
-        $sql = "SELECT * FROM `$this->table` LIMIT :param_1, :param_2";
+        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id LIMIT :param_1, :param_2";
         $sth = BasePDBC::pdo()->prepare($sql);
         $sth->bindParam(":param_1", $param_1, PDO::PARAM_INT);
         $sth->bindParam(":param_2", $param_2, PDO::PARAM_INT);

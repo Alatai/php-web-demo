@@ -13,6 +13,11 @@ class UserModel extends BaseModel
 {
     protected $table = "user";
 
+    public function getTable()
+    {
+        return $this->table;
+    }
+
     /**
      * Like sql by user's name.
      *
