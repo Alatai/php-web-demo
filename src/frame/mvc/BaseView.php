@@ -59,7 +59,7 @@ class BaseView
         if (is_file($controllerLayout)) {
             include($controllerLayout);
         } else {
-            echo "<h1>can not find the file.</h1>";
+            echo "<h1>Can not find the file.</h1>";
         }
 
         // footer file
