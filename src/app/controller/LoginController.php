@@ -27,8 +27,9 @@ class LoginController extends BaseController
 
             $_SESSION["userid"] = $user["id"];
             $_SESSION["username"] = $user["name"];
+            $_SESSION["admin"] = $user["admin"];
 
-            header("Location: http://localhost:8080/blog");
+            header("Location: http://localhost:8080/blog/index");
         } else {
             header("Location: http://localhost:8080/login.html");
         }
@@ -42,6 +43,6 @@ class LoginController extends BaseController
         session_start();
         session_destroy();
 
-        header("Location: http://localhost:8080/login.html");
+        header("Location: http://localhost:8080/blog/index");
     }
 }

@@ -158,7 +158,7 @@ class BaseQuery
 
         foreach ($data as $key => $val) {
             $fields[] = sprintf("`%s`", $key);
-            $names[] = sprintf("`%s`", $key);
+            $names[] = sprintf(":%s", $key);
         }
 
         $field = implode(",", $fields);

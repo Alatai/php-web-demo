@@ -15,6 +15,24 @@ class BlogModel extends BaseModel
     protected $table = "blog";
 
     /**
+     * Select sql by blog id.
+     *
+     * @param $id
+     * @return null
+     */
+    public function searchById($id) {
+        $userTable = (new UserModel())->getTable();
+
+        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id AND b.id = :id";
+        $sth = BasePDBC::pdo()->prepare($sql);
+        $sth->bindParam(":id", $id, PDO::PARAM_INT);
+
+        $sth->execute();
+
+        return $sth->fetch();
+    }
+
+    /**
      * Like sql by blog's name or blog's content.
      *
      * @param $keyword
@@ -22,7 +40,7 @@ class BlogModel extends BaseModel
      */
     public function searchByKeyword($keyword)
     {
-        $sql = "SELECT * FROM `$this->table` WHERE `title` LIKE :keyword OR `content` LIKE :keyword";
+        $sql = "SELECT * FROM `$this->table` WHERE title LIKE :keyword OR content LIKE :keyword";
         $sth = BasePDBC::pdo()->prepare($sql);
         $sth = $this->formatParam($sth, [":keyword" => "%$keyword%"]);
         $sth->execute();
@@ -33,18 +51,19 @@ class BlogModel extends BaseModel
     /**
      * Create pageResult.
      * @param $currentPage
-     * @param $pageSize
      * @return PageResult
      */
-    public function paginate($currentPage, $pageSize)
+    public function paginate($currentPage)
     {
+        $pageSize = 4;
+
         $param_1 = ($currentPage - 1) * $pageSize;
         $param_2 = $pageSize;
 
         $userTable = (new UserModel())->getTable();
 
         // listData sql
-        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id LIMIT :param_1, :param_2";
+        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id ORDER BY b.id DESC LIMIT :param_1, :param_2";
         $sth = BasePDBC::pdo()->prepare($sql);
         $sth->bindParam(":param_1", $param_1, PDO::PARAM_INT);
         $sth->bindParam(":param_2", $param_2, PDO::PARAM_INT);
@@ -61,5 +80,6 @@ class BlogModel extends BaseModel
 
         return new PageResult($listData, $totalCount, $currentPage, $pageSize);
     }
+
 
 }

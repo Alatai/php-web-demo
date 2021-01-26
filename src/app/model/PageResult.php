@@ -30,8 +30,8 @@ class PageResult
             $this->totalCount / $this->pageSize :
             $this->totalCount / $this->pageSize + 1;
         $this->beginPage = 1;
-        $this->prePage = $this->currentPage >= 1 ? $this->currentPage - 1 : 1;
-        $this->nextPage = $this->currentPage + 1 <= $this->totalPage ? $this->currentPage + 1 : $this->totalPage;
+        $this->prePage = $this->currentPage > 1 ? $this->currentPage - 1 : 1;
+        $this->nextPage = $this->currentPage + 1 < $this->totalPage ? $this->currentPage + 1 : $this->totalPage;
         $this->endPage = $this->totalPage;
     }
 

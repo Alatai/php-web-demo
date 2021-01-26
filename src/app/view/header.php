@@ -22,17 +22,27 @@
     <div class="uk-navbar-container uk-visible@m uk-background-secondary uk-light" uk-navbar>
         <div class="uk-navbar-left uk-margin-large-left">
             <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#">HOME | ホーム</a></li>
-                <li><a href="#">BLOG | ブログ</a></li>
+                <li><a href="/blog/index">HOME | ホーム</a></li>
+                <li><a href="/blog/edit">BLOG | ブログ</a></li>
+                <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1): ?>
+                    <li><a href="/user/index">USER | ユーザ</a></li>
+                <?php endif; ?>
                 <li><a href="#">OTHER | その他</a></li>
             </ul>
         </div>
 
         <div class="uk-navbar-right uk-margin-large-right">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active"><a href="#">WELCOME: <?php echo $_SESSION["username"]; ?> 様</a></li>
-                <li><a href="/login/logout">logout</a></li>
-            </ul>
+            <?php if (isset($_SESSION["username"])): ?>
+                <ul class="uk-navbar-nav">
+                    <li><a>WELCOME:<?php echo $_SESSION["username"] ?> 様</a></li>
+                    <li><a href="/login/logout">LOGOUT</a></li>
+                </ul>
+            <?php else: ?>
+                <ul class="uk-navbar-nav">
+                    <li><a href="/login/login">LOGIN</a></li>
+                    <li><a href="/user/edit">SIGN IN</a></li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 </div>

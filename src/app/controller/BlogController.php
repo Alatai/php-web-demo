@@ -19,21 +19,91 @@ class BlogController extends BaseController
     {
         session_start();
 
-        if ($_SESSION["username"]) {
-            $pageResult = (new BlogModel)->paginate(1, 5);
+        $currentPage = isset($_POST["currentPage"]) ? $_POST["currentPage"] : 1;
 
-            $this->assign("pageResult", $pageResult);
+        $pageResult = (new BlogModel)->paginate($currentPage);
+
+        $this->assign("pageResult", $pageResult);
+        $this->render();
+    }
+
+    /**
+     * Read more page.
+     */
+    public function read()
+    {
+        session_start();
+
+        $id = $_GET["id"];
+
+        $blog = (new BlogModel)->searchById($id);
+
+        $this->assign("blog", $blog);
+        $this->render();
+    }
+
+    /**
+     * Edit page.
+     */
+    public function edit()
+    {
+        session_start();
+
+        // update
+        if (isset($_GET["id"])) {
+            $blog = (new BlogModel)->searchById($_GET["id"]);
+
+            if ($_SESSION["username"] === $blog["writer"]) {
+                $this->assign("blog", $blog);
+            } else {
+                header("Location: http://localhost:8080/login.html");
+            }
 
             $this->render();
-        } else {
-            header("Location: http://localhost:8080/login.html");
+        } else { // add
+            if ($_SESSION["username"]) {
+                $this->render();
+            } else {
+                header("Location: http://localhost:8080/login.html");
+            }
         }
     }
 
     /**
-     * Blog update.
+     * Add blog.
      */
-    public function update() {
-        echo $_SERVER['PHP_SELF']."<br>";
+    public function add()
+    {
+        session_start();
+
+        $userId = $_SESSION["userid"];
+
+        $data = array("user_id" => $userId, "title" => $_POST["title"], "summary" => $_POST["summary"],
+            "content" => $_POST["content"], "created_at" => date("Y-m-d H:i:s"));
+
+        (new BlogModel)->add($data);
+
+        header("Location: http://localhost:8080/blog/index");
+    }
+
+    /**
+     * Update blog.
+     */
+    public function update()
+    {
+        $data = array("id" => $_POST["id"], "title" => $_POST["title"],
+            "summary" => $_POST["summary"], "content" => $_POST["content"]);
+
+        (new BlogModel)->where(["id = :id"], [":id" => $data["id"]])->update($data);
+
+        header("Location: http://localhost:8080/blog/index");
+    }
+
+    /**
+     * Delete blog.
+     */
+    public function delete()
+    {
+
     }
 }

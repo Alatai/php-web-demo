@@ -1,8 +1,9 @@
 "use strict";
 
 /**
- * Pagination.
+ * Paging.
  */
-function paginate() {
-
+function paging(currentPage) {
+    document.getElementById("currentPage").value = currentPage;
+    document.forms[0].submit();
 }
