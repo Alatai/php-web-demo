@@ -15,7 +15,11 @@
                     <div class="uk-grid-small uk-child-width-auto" uk-grid>
                         <div>
                             <a class="uk-button uk-button-text"
-                               href="/blog/edit?id=<?php echo $blog["id"]; ?>">EDIT</a>
+                               href="/blog/edit/<?php echo $blog["id"]; ?>">EDIT</a>
+                        </div>
+                        <div>
+                            <a class="uk-button uk-button-text"
+                               href="/blog/delete/<?php echo $blog["id"]; ?>">DELETE</a>
                         </div>
                     </div>
                 </article>

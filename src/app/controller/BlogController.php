@@ -29,12 +29,11 @@ class BlogController extends BaseController
 
     /**
      * Read more page.
+     * @param $id
      */
-    public function read()
+    public function read($id)
     {
         session_start();
-
-        $id = $_GET["id"];
 
         $blog = (new BlogModel)->searchById($id);
 
@@ -44,16 +43,17 @@ class BlogController extends BaseController
 
     /**
      * Edit page.
+     * @param $id
      */
-    public function edit()
+    public function edit($id = null)
     {
         session_start();
 
         // update
-        if (isset($_GET["id"])) {
-            $blog = (new BlogModel)->searchById($_GET["id"]);
+        if ($id) {
+            $blog = (new BlogModel)->searchById($id);
 
-            if ($_SESSION["username"] === $blog["writer"]) {
+            if ($_SESSION["username"] == $blog["writer"]) {
                 $this->assign("blog", $blog);
             } else {
                 header("Location: http://localhost:8080/login.html");
@@ -101,9 +101,18 @@ class BlogController extends BaseController
 
     /**
      * Delete blog.
+     * @param $id
      */
-    public function delete()
+    public function delete($id)
     {
+        session_start();
 
+        $blog = (new BlogModel)->searchById($id);
+
+        if ($_SESSION["username"] == $blog["writer"]) {
+            (new BlogModel)->delete($id);
+        }
+
+        header("Location: http://localhost:8080/blog/index");
     }
 }

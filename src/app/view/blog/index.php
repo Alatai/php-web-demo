@@ -8,7 +8,8 @@
                         <li>
                             <article class="uk-article">
                                 <h1 class="uk-article-title">
-                                    <a class="uk-link-reset" href="/blog/read?id=<?php echo $blog["id"]; ?>"><?php echo $blog["title"]; ?></a>
+                                    <a class="uk-link-reset"
+                                       href="/blog/read/<?php echo $blog["id"]; ?>"><?php echo $blog["title"]; ?></a>
                                 </h1>
                                 <p class="uk-article-meta">Written by
                                     <?php echo $blog["writer"]; ?>&nbsp;<?php echo $blog["created_at"]; ?>
@@ -17,11 +18,15 @@
                                 <div class="uk-grid-small uk-child-width-auto" uk-grid>
                                     <div>
                                         <a class="uk-button uk-button-text"
-                                           href="/blog/read?id=<?php echo $blog["id"]; ?>">MORE</a>
+                                           href="/blog/read/<?php echo $blog["id"]; ?>">MORE</a>
                                     </div>
                                     <div>
                                         <a class="uk-button uk-button-text"
-                                           href="/blog/edit?id=<?php echo $blog["id"]; ?>">EDIT</a>
+                                           href="/blog/edit/<?php echo $blog["id"]; ?>">EDIT</a>
+                                    </div>
+                                    <div>
+                                        <a class="uk-button uk-button-text"
+                                           href="/blog/delete/<?php echo $blog["id"]; ?>">DELETE</a>
                                     </div>
                                 </div>
                             </article>

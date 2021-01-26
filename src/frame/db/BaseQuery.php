@@ -11,7 +11,7 @@ use \PDOStatement;
 class BaseQuery
 {
     protected $table; // database table name
-    protected $primaryKey; // table's primary key
+    protected $primaryKey = "id"; // table's primary key
     private $filter = ""; // WHERE and ORDER condition
     private $param = array(); // sql's parameter array
 
@@ -91,7 +91,10 @@ class BaseQuery
         $sth = $this->formatParam($sth, [$this->primaryKey => $id]);
         $sth->execute();
 
-        return $sth->rowCount();
+        $sth->rowCount();
+
+        echo $id;
+        $sth->debugDumpParams();
     }
 
     /**
