@@ -47,4 +47,9 @@ class UserModel extends BaseModel
             " or email = ? ", " and password = ? "],
             [$account, $password, $account, $password])->fetch();
     }
+
+    public function searchById($id)
+    {
+        return $this->where(["id = :id"], [":id" => $id])->fetch();
+    }
 }

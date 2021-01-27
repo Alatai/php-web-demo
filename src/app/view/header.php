@@ -12,7 +12,7 @@
     <script type="text/javascript" src="../../static/js/uikit.min.js"></script>
     <script type="text/javascript" src="../../static/js/uikit-icons.min.js"></script>
     <script type="text/javascript" src="../../static/js/main.js"></script>
-    <title>HOME</title>
+    <title><?php echo strtoupper(substr($_SERVER["PHP_SELF"], 11, 4)); ?></title>
 </head>
 <body>
 
@@ -27,14 +27,13 @@
                 <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"] == 1): ?>
                     <li><a href="/user/index">USER | ユーザ</a></li>
                 <?php endif; ?>
-                <li><a href="#">OTHER | その他</a></li>
             </ul>
         </div>
 
         <div class="uk-navbar-right uk-margin-large-right">
             <?php if (isset($_SESSION["username"])): ?>
                 <ul class="uk-navbar-nav">
-                    <li><a>WELCOME:<?php echo $_SESSION["username"] ?> 様</a></li>
+                    <li><a href="/user/edit/<?php echo $_SESSION["userid"] ?>">WELCOME:<?php echo $_SESSION["username"] ?> 様</a></li>
                     <li><a href="/login/logout">LOGOUT</a></li>
                 </ul>
             <?php else: ?>

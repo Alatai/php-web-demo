@@ -4,3 +4,13 @@
 a:hover, a:active {
     text-decoration: none;
 }
+
+/* footer */
+.footer {
+
+}
+
+/* blog edit */
+.edit-content {
+    height: 500px;
+}
