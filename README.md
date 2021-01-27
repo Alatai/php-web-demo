@@ -1,4 +1,4 @@
-# PHPWebApp
+# php-web-demo
 
 Simple blog app by PHP.
 
