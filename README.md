@@ -2,4 +2,4 @@
 
 Simple blog app by PHP.
 
-参考：https://github.com/yeszao/fastphp
+Frame 参考：https://github.com/yeszao/fastphp
