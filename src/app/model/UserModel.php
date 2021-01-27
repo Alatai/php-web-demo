@@ -41,7 +41,7 @@ class UserModel extends BaseModel
      * @param $password
      * @return mixed
      */
-    public function searchForLogin($account, $password)
+    public function login($account, $password)
     {
         return $this->where([" name = ? ", " and password = ? ",
             " or email = ? ", " and password = ? "],

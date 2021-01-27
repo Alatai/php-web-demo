@@ -7,7 +7,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Created Time</th>
-                    <th>Admin</th>
+                    <th>Type</th>
                     <th>Option</th>
                 </tr>
                 </thead>
