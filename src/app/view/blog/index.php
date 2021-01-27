@@ -62,26 +62,17 @@
         <div class="uk-width-1-1 uk-width-1-3@s">
             <div class="uk-card uk-card-body">
                 <h4>Blog Search</h4>
-                <div class="uk-inline">
-                    <label class="uk-form-label" for="keyword"></label>
-                    <input class="uk-input" type="text" id="keyword" name="keyword" placeholder="検索" size="31">
-                </div>
-                <br>
-                <br>
-                <button type="submit" class="uk-button uk-button-default">検索</button>
+                <form action="/blog/index" method="POST">
+                    <div class="uk-inline">
+                        <input class="uk-input" type="text" name="keyword" placeholder="題名を入力してみて" size="31"
+                               value="<?php if (isset($keyword)) echo $keyword; ?>">
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="uk-button uk-button-default">検索</button>
+                </form>
             </div>
-            <div class="uk-card uk-card-body">
-                <h3 class="uk-card-title">Time line</h3>
-                <ul class="uk-list uk-list-divider">
-                    <li><a href="">2019年12月</a></li>
-                    <li><a href="">2019年11月</a></li>
-                    <li><a href="">2019年10月</a></li>
-                    <li><a href="">2019年9月</a></li>
-                    <li><a href="">2019年8月</a></li>
-                    <li><a href="">2019年7月</a></li>
-                    <li><a href="">2019年6月</a></li>
-                </ul>
-            </div>
+
             <div class="uk-card uk-card-body">
                 <h3 class="uk-card-title">SNS</h3>
                 <ul class="uk-list">

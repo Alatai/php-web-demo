@@ -19,11 +19,13 @@ class BlogController extends BaseController
     {
         session_start();
 
-        $currentPage = isset($_POST["currentPage"]) ? $_POST["currentPage"] : 1;
+        $keyword = isset($_POST["keyword"]) ? $_POST["keyword"] : "";
 
-        $pageResult = (new BlogModel)->paginate($currentPage);
+        $currentPage = isset($_POST["currentPage"]) ? $_POST["currentPage"] : 1;
+        $pageResult = (new BlogModel)->paginate($keyword, $currentPage);
 
         $this->assign("pageResult", $pageResult);
+        $this->assign("keyword", $keyword);
         $this->render();
     }
 

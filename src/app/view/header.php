@@ -33,8 +33,15 @@
         <div class="uk-navbar-right uk-margin-large-right">
             <?php if (isset($_SESSION["username"])): ?>
                 <ul class="uk-navbar-nav">
-                    <li><a href="/user/edit/<?php echo $_SESSION["userid"] ?>">WELCOME:<?php echo $_SESSION["username"] ?> 様</a></li>
-                    <li><a href="/login/logout">LOGOUT</a></li>
+                    <li>
+                        <a>WELCOME:<?php echo $_SESSION["username"] ?> 様</a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="/user/edit/<?php echo $_SESSION["userid"] ?>">EDIT</a></li>
+                                <li><a href="/login/logout">LOGOUT</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             <?php else: ?>
                 <ul class="uk-navbar-nav">

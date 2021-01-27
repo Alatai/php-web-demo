@@ -20,7 +20,8 @@ class BlogModel extends BaseModel
      * @param $id
      * @return null
      */
-    public function searchById($id) {
+    public function searchById($id)
+    {
         $userTable = (new UserModel())->getTable();
 
         $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id AND b.id = :id";
@@ -33,27 +34,12 @@ class BlogModel extends BaseModel
     }
 
     /**
-     * Like sql by blog's name or blog's content.
-     *
-     * @param $keyword
-     * @return array
-     */
-    public function searchByKeyword($keyword)
-    {
-        $sql = "SELECT * FROM `$this->table` WHERE title LIKE :keyword OR content LIKE :keyword";
-        $sth = BasePDBC::pdo()->prepare($sql);
-        $sth = $this->formatParam($sth, [":keyword" => "%$keyword%"]);
-        $sth->execute();
-
-        return $sth->fetchAll();
-    }
-
-    /**
      * Create pageResult.
+     * @param $keyword
      * @param $currentPage
      * @return PageResult
      */
-    public function paginate($currentPage)
+    public function paginate($keyword, $currentPage)
     {
         $pageSize = 4;
 
@@ -61,10 +47,11 @@ class BlogModel extends BaseModel
         $param_2 = $pageSize;
 
         $userTable = (new UserModel())->getTable();
+        $keyword = "%" . $keyword . "%";
 
-        // listData sql
-        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id ORDER BY b.id DESC LIMIT :param_1, :param_2";
+        $sql = "SELECT b.*, u.name AS writer FROM `$this->table` b, `$userTable` u WHERE b.user_id = u.id AND title LIKE :keyword ORDER BY b.id DESC LIMIT :param_1, :param_2";
         $sth = BasePDBC::pdo()->prepare($sql);
+        $sth->bindParam(":keyword", $keyword, PDO::PARAM_STR);
         $sth->bindParam(":param_1", $param_1, PDO::PARAM_INT);
         $sth->bindParam(":param_2", $param_2, PDO::PARAM_INT);
         $sth->execute();
@@ -72,14 +59,14 @@ class BlogModel extends BaseModel
         $listData = $sth->fetchAll();
 
         // totalCount sql
-        $sql = "SELECT COUNT(*) FROM `$this->table`";
+        $sql = "SELECT COUNT(*) FROM `$this->table` WHERE title LIKE :keyword";
         $sth = BasePDBC::pdo()->prepare($sql);
+        $sth->bindParam(":keyword", $keyword, PDO::PARAM_STR);
+
         $sth->execute();
 
         $totalCount = $sth->fetchColumn();
 
         return new PageResult($listData, $totalCount, $currentPage, $pageSize);
     }
-
-
 }
