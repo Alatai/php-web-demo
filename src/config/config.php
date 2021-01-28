@@ -2,7 +2,7 @@
 
 /*
  * database&controller's configuration
- * @author: M20W0324 斉鵬
+ * @author: 斉鵬
  */
 
 // database configuration
