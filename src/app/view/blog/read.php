@@ -3,11 +3,10 @@
         <div class="read-container">
             <article>
                 <h1>
-                    <a href=""><?php echo $blog["title"]; ?></a>
+                    <?php echo $blog["title"]; ?>
                 </h1>
                 <p class="author">Written by
-                    <a href="#"><?php echo $blog["writer"]; ?></a>
-                    <?php echo $blog["created_at"]; ?>
+                    <?php echo $blog["writer"]; ?>&nbsp;<?php echo $blog["created_at"]; ?>
                 </p>
                 <p class="summary"><?php echo $blog["summary"]; ?></p>
                 <p class="content"><?php echo $blog["content"]; ?></p>

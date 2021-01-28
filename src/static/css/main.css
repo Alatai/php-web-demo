@@ -79,14 +79,14 @@ body {
 
 /* custom a */
 a {
-    color: #333;
+    color: #e5e5e5;
 }
 
 a:hover {
-    color: #333;
+    color: #fff;
 }
 
-/* text center */
+/* custom text */
 .text-center {
     margin: 10px 0;
     text-align: center;
@@ -104,7 +104,7 @@ input {
 
 input:focus {
     background-color: #fff;
-    border-color: #222;
+    border-color: #333;
     color: #666;
 }
 
@@ -137,6 +137,14 @@ button:hover {
 .options div {
     margin-right: 10px;
     font-size: 14px;
+}
+
+.options a {
+    color: #000;
+}
+
+.options a:hover {
+    color: #696969;
 }
 
 /* blog author */
@@ -172,12 +180,7 @@ main {
 .nav li {
     float: left;
     margin-right: 20px;
-}
-
-.nav li a {
-    width: 30px;
     line-height: 80px;
-    color: #fff;
 }
 
 .nav .last {
@@ -186,20 +189,22 @@ main {
 
 .nav .user-panel {
     display: none;
-
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    position: absolute;
+    right: 0;
+    width: 140px;
     height: 80px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
 }
 
 .nav .user-panel li {
-    float: none;
-    height: 30px;
+    position: relative;
+    height: 20px;
     margin: 0;
-    padding: 10px 0 0 45px;
+    padding: 15px 0 0 50px;
+    line-height: 0;
 }
 
 .nav .user-panel a {
-    line-height: 0;
     color: #333;
 }
 
@@ -207,8 +212,8 @@ main {
 .footer-container {
     margin: auto;
     width: 500px;
-    color: #fff;
     text-align: center;
+    color: #fff;
 }
 
 .footer-content {
@@ -269,6 +274,16 @@ main {
     border-bottom: 1px solid #e5e5e5;
 }
 
+.blog-left li h1 a,
+.blog-left .pagination a {
+    color: #000;
+}
+
+.blog-left li h1 a:hover,
+.blog-left .pagination a {
+    color: #696969;
+}
+
 .blog-left .pagination {
     margin-left: 40%;
 }
@@ -284,7 +299,7 @@ main {
     position: absolute;
     display: inline-block;
     width: 25%;
-    margin-left: 4.9%;
+    margin-left: 5%;
 }
 
 .blog-right h3 {
@@ -301,7 +316,7 @@ main {
 }
 
 .blog-right input {
-    width: 65%;
+    width: 71%;
     padding: 15px 40px;
     background-color: #fff;
 }
@@ -331,47 +346,40 @@ main {
 }
 
 /* blog edit */
-.edit-container {
+.bedit-container {
     width: 700px;
     margin: 80px auto 50px auto;
 }
 
-.edit-container h2 {
+.bedit-container h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.edit-container input, textarea {
+.bedit-container input, textarea {
     width: 700px;
     margin-bottom: 20px;
 }
 
-.edit-container input {
+.bedit-container input {
     width: 96%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #e5e5e5;
-    outline: none;
-    color: #666;
-}
-
-.edit-container textarea {
-    width: 96%;
-    padding: 15px;
-    border: 1px solid #e5e5e5;
-}
-
-.edit-container input {
     background: #fff;
+    color: #000;
 }
 
-.edit-container button {
+.bedit-container textarea {
+    width: 96%;
+    padding: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.bedit-container button {
     width: 30%;
     margin-left: 300px;
     color: #fff;
 }
 
-.edit-content {
+.bedit-content {
     height: 500px;
 }
 
@@ -416,7 +424,3 @@ main {
     margin-left: 115px;
     color: #fff;
 }
-
-
-
-

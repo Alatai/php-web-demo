@@ -1,5 +1,5 @@
 <main>
-    <div class="edit-container">
+    <div class="bedit-container">
         <?php if (isset($blog)): ?>
         <form action="/blog/update" method="POST">
             <input id="id" name="id" value="<?php echo $blog["id"]; ?>" hidden>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label>
-                        <textarea class="edit-content" name="content" rows="5"
+                        <textarea class="bedit-content" name="content" rows="5"
                                   placeholder="内容 | Content"><?php echo isset($blog) ? $blog["content"] : ""; ?></textarea>
                     </label>
                 </div>
