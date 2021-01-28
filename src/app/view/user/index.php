@@ -1,32 +1,48 @@
 <?php if (isset($users)): ?>
-    <div class="uk-container">
-        <div class="uk-margin-medium" uk-grid>
-            <table class="uk-table uk-table-striped">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Created Time</th>
-                    <th>Type</th>
-                    <th>Option</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($users as $user): ?>
+    <main>
+        <div class="user-container">
+            <div>
+                <table>
+                    <thead>
                     <tr>
-                        <td><?php echo $user["name"]; ?></td>
-                        <td><?php echo $user["email"]; ?></td>
-                        <td><?php echo $user["created_at"]; ?></td>
-                        <?php if ($user["admin"] == 1): ?>
-                            <td>Administrator</td>
-                        <?php else: ?>
-                            <td>User</td>
-                        <?php endif; ?>
-                        <td><a href="/user/delete/<?php echo $user["id"]; ?>">DELETE | 削除</a></td>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created Time</th>
+                        <th>Type</th>
+                        <th>Option</th>
                     </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <?php for ($i = 0; $i < count($users); $i++): ?>
+                        <?php if ($i % 2 == 0): ?>
+                            <tr>
+                                <td><?php echo $users[$i]["name"]; ?></td>
+                                <td><?php echo $users[$i]["email"]; ?></td>
+                                <td><?php echo $users[$i]["created_at"]; ?></td>
+                                <?php if ($users[$i]["admin"] == 1): ?>
+                                    <td>Administrator</td>
+                                <?php else: ?>
+                                    <td>User</td>
+                                <?php endif; ?>
+                                <td><a href="/user/delete/<?php echo $users[$i]["id"]; ?>">削除</a></td>
+                            </tr>
+                        <?php else: ?>
+                            <tr class="odd">
+                                <td><?php echo $users[$i]["name"]; ?></td>
+                                <td><?php echo $users[$i]["email"]; ?></td>
+                                <td><?php echo $users[$i]["created_at"]; ?></td>
+                                <?php if ($users[$i]["admin"] == 1): ?>
+                                    <td>Administrator</td>
+                                <?php else: ?>
+                                    <td>User</td>
+                                <?php endif; ?>
+                                <td><a href="/user/delete/<?php echo $users[$i]["id"]; ?>">削除</a></td>
+                            </tr>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    </main>
 <?php endif; ?>

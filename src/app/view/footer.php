@@ -1,25 +1,21 @@
-<div class="uk-margin-large-top uk-background-muted uk-background-secondary footer">
-    <div class="uk-container uk-container-center uk-text-center">
-        <div class="uk-panel uk-margin-top uk-margin-bottom">
+<footer>
+    <div class="footer-container">
+        <div class="footer-content">
             <p>
-                <a class="uk-icon-button" uk-icon="github" target="_blank" href="https://github.com/Qiipeng"></a>
-                <a class="uk-icon-button" uk-icon="twitter" target="_blank" href=""></a>
-                <a class="uk-icon-button" uk-icon="facebook" target="_blank" href=""></a>
-                <a class="uk-icon-button" uk-icon="instagram" target="_blank" href=""></a>
+                <a target="_blank" href="https://github.com/qipeng0013"><i class="fab fa-github"></i></a>
+                <a target="_blank" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a target="_blank" href="https://twitter.com/?lang=zh-cn"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" href="https://www.facebook.com/"><i class="fab fa-instagram"></i></a>
             </p>
             <p>
-                Powered by <a href="">PHP Web App</a>. Copyright &copy; 2021. [
-                <a href="" target="_blank">Manage</a>]
-            </p>
+                Powered by <a href="https://github.com/qipeng0013/php-web-demo">php-web-demo</a>. Copyright@
+                QI PENG(SAI HOU)</p>
             <p>
                 <a href="" target="_blank">www.xxx.com</a>. All rights reserved.
             </p>
-            <a target="_blank" href="">
-                <i class="uk-icon-html5" style="font-size:64px; color: #444;"></i>
-            </a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

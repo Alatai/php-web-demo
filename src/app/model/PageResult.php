@@ -26,12 +26,12 @@ class PageResult
         $this->currentPage = $currentPage;
         $this->pageSize = $pageSize;
 
-        $this->totalPage = $this->totalCount % $this->pageSize === 0 ?
-            $this->totalCount / $this->pageSize :
-            $this->totalCount / $this->pageSize + 1;
+        $this->totalPage = $this->totalCount % $this->pageSize == 0 ?
+            intval($this->totalCount / $this->pageSize) :
+            intval($this->totalCount / $this->pageSize) + 1;
         $this->beginPage = 1;
         $this->prePage = $this->currentPage > 1 ? $this->currentPage - 1 : 1;
-        $this->nextPage = $this->currentPage + 1 < $this->totalPage ? $this->currentPage + 1 : $this->totalPage;
+        $this->nextPage = $this->currentPage < $this->totalPage ? $this->currentPage + 1 : $this->totalPage;
         $this->endPage = $this->totalPage;
     }
 

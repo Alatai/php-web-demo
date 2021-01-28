@@ -1,16 +1,422 @@
 @charset "utf-8";
 
 /* css reset */
-a:hover, a:active {
+body, dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6, pre, p,
+form, button, input, textarea, select,
+table, tr, td, th {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+i, em {
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b {
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+a {
     text-decoration: none;
 }
 
-/* footer */
-.footer {
+button, input, textarea, select, a {
+    outline: none;
+}
 
+/* common */
+/* body color/font-family */
+body {
+    background-color: #fff;
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3",
+    "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+/* length of row */
+.row {
+    position: relative;
+    width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* left content/right content */
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* fix float */
+.clear-fix::after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+
+.clear-fix {
+    *zoom: 1;
+}
+
+/* custom a */
+a {
+    color: #333;
+}
+
+a:hover {
+    color: #333;
+}
+
+/* text center */
+.text-center {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* custom input */
+input {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    color: #666;
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: #222;
+    color: #666;
+}
+
+input::-ms-input-placeholder {
+    text-align: center;
+}
+
+input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+/* custom button */
+button {
+    padding: 12px;
+    border: 1px solid #222;
+    font-size: 14px;
+    background-color: #222;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* blog option */
+.options {
+    display: flex;
+    margin: 30px 0 0 0;
+}
+
+.options div {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* blog author */
+.author {
+    margin: 20px 0;
+    font-size: .875rem;
+    line-height: 1.4;
+    color: #999;
+}
+
+/* structure */
+body {
+    display: flex;
+    min-height: 100vh; /* vh: view height */
+    flex-direction: column;
+}
+
+header {
+    height: 80px;
+    background-color: #222;
+}
+
+footer {
+    height: 160px;
+    background-color: #222;
+}
+
+main {
+    flex: 1
+}
+
+/* site navigation */
+.nav li {
+    float: left;
+    margin-right: 20px;
+}
+
+.nav li a {
+    width: 30px;
+    line-height: 80px;
+    color: #fff;
+}
+
+.nav .last {
+    margin-right: 0;
+}
+
+.nav .user-panel {
+    display: none;
+
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    height: 80px;
+}
+
+.nav .user-panel li {
+    float: none;
+    height: 30px;
+    margin: 0;
+    padding: 10px 0 0 45px;
+}
+
+.nav .user-panel a {
+    line-height: 0;
+    color: #333;
+}
+
+/* site end */
+.footer-container {
+    margin: auto;
+    width: 500px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-content {
+    padding-top: 45px;
+}
+
+.footer-content a {
+    color: #fff;
+}
+
+/* login */
+.login-container {
+    margin: 100px 0;
+}
+
+.login-panel {
+    margin: auto;
+    width: 330px;
+}
+
+.login-panel img {
+    margin: 0 0 0 132px;
+    width: 20%;
+}
+
+.login-panel input {
+    width: 75%;
+    padding: 15px 40px;
+}
+
+.login-panel i {
+    position: absolute;
+    padding: 15px;
+    min-width: 50px;
+}
+
+.login-panel button {
+    width: 100%;
+    color: #fff;
+}
+
+/* blog */
+/* blog index */
+.blog-container {
+    position: relative;
+    margin: 80px 0;
+}
+
+.blog-left {
+    display: inline-block;
+    width: 65%;
+    margin-right: 5%;
+}
+
+.blog-left li {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-left .pagination {
+    margin-left: 40%;
+}
+
+.blog-left .pagination li {
+    float: left;
+    margin: 0 5px;
+    border-bottom: 0;
+    color: #e5e5e5;
+}
+
+.blog-right {
+    position: absolute;
+    display: inline-block;
+    width: 25%;
+    margin-left: 4.9%;
+}
+
+.blog-right h3 {
+    margin-bottom: 20px;
+}
+
+.blog-right li {
+    margin-bottom: 15px;
+
+}
+
+.blog-right li a {
+    color: #1e87f0;
+}
+
+.blog-right input {
+    width: 65%;
+    padding: 15px 40px;
+    background-color: #fff;
+}
+
+.blog-right i {
+    position: absolute;
+    padding: 15px;
+    color: #999;
+}
+
+.blog-right button {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 100px;
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+}
+
+/* blog read */
+.read-container {
+    width: 800px;
+    margin: 80px auto 50px auto;
+}
+
+.read-container .content {
+    margin: 20px 0;
 }
 
 /* blog edit */
+.edit-container {
+    width: 700px;
+    margin: 80px auto 50px auto;
+}
+
+.edit-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.edit-container input, textarea {
+    width: 700px;
+    margin-bottom: 20px;
+}
+
+.edit-container input {
+    width: 96%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    outline: none;
+    color: #666;
+}
+
+.edit-container textarea {
+    width: 96%;
+    padding: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.edit-container input {
+    background: #fff;
+}
+
+.edit-container button {
+    width: 30%;
+    margin-left: 300px;
+    color: #fff;
+}
+
 .edit-content {
     height: 500px;
 }
+
+/* user */
+/* user index */
+.user-container {
+    width: 1000px;
+    margin: 80px auto 50px auto;
+}
+
+.user-container th, td {
+    width: 10%;
+    border-bottom: 1px solid #e5e5e5;
+    height: 50px;
+}
+
+.user-container td {
+    text-align: center;
+}
+
+.user-container .odd {
+    background: #e5e5e5;
+}
+
+/* user edit */
+.uedit-container {
+    width: 330px;
+    margin: 80px auto 50px auto;
+}
+
+.uedit-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.uedit-container input {
+    width: 90%;
+}
+
+.uedit-container button {
+    width: 30%;
+    margin-left: 115px;
+    color: #fff;
+}
+
+
+
+
